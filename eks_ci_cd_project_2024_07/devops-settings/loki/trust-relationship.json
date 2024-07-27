@@ -1,0 +1,18 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::767397906204:oidc-provider/oidc.eks.ap-northeast-2.amazonaws.com/id/7A347E34DABC3F842EC2B65421F75121"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringEquals": {
+                    "oidc.eks.ap-northeast-2.amazonaws.com/id/7A347E34DABC3F842EC2B65421F75121:sub": "system:serviceaccount:loki-stack:loki-s3-service-account",
+                    "oidc.eks.ap-northeast-2.amazonaws.com/id/7A347E34DABC3F842EC2B65421F75121:aud": "sts.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
